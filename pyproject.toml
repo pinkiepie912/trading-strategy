@@ -1,0 +1,26 @@
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.black]
+line-length = 79
+target_version = ['py37']
+include = '\.pyi?$'
+
+[tool.poetry]
+name = "trading-strategy"
+version = "0.1.0"
+description = ""
+authors = ["Hyun <pinkiepies0912@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.2.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+yahoofinancials = "^1.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
