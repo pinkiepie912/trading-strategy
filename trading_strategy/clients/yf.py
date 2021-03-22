@@ -44,10 +44,10 @@ class YahooFinanceClient:
             time_interval=time_interval.value,
         )
 
-        if "price" not in history[ticker]:
+        if "prices" not in history[ticker]:
             raise InvalidTickerError
 
-        prices = history[ticker]["price"]
+        prices = history[ticker]["prices"]
         if not prices:
             raise NoHistoricalDataError
 
