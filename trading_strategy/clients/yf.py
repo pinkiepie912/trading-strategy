@@ -21,6 +21,11 @@ class Interval(enum.Enum):
     MONTHLY = "monthly"
 
 
+class Currency(enum.Enum):
+    USD = "USD"
+    KRW = "KRW"
+
+
 # TODO: 개발 편의상 client를 두었으나, trading repo로 이전해야함.
 class YahooFinanceClient:
     def __init__(self):
@@ -51,6 +56,8 @@ class YahooFinanceClient:
         if not prices:
             raise NoHistoricalDataError
 
+        currency = Currency(history[ticker]["currency"])
+
         return [
             Price(
                 adjclose=price["adjclose"],
@@ -60,6 +67,7 @@ class YahooFinanceClient:
                 low=price["low"],
                 open=price["open"],
                 volume=price["volume"],
+                currency=currency,
             )
             for price in prices
         ]
@@ -80,3 +88,4 @@ class Price:
     low: float
     open: float
     volume: int
+    currency: Currency
