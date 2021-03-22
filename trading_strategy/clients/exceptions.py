@@ -4,3 +4,7 @@ class InvalidTickerError(RuntimeError):
 
 class NoHistoricalDataError(RuntimeError):
     pass
+
+
+class InvalidPeriodError(RuntimeError):
+    pass

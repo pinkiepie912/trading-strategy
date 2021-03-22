@@ -8,7 +8,11 @@ from typing import List
 from yahoofinancials import YahooFinancials
 
 from ..constants import DATE_FMT
-from .exceptions import InvalidTickerError, NoHistoricalDataError
+from .exceptions import (
+    InvalidPeriodError,
+    InvalidTickerError,
+    NoHistoricalDataError,
+)
 
 
 class Interval(enum.Enum):
@@ -30,6 +34,9 @@ class YahooFinanceClient:
         end_date: datetime.date,
         time_interval: Interval,
     ) -> List[Price]:
+        if start_date > end_date:
+            raise InvalidPeriodError
+
         yahoo_financial = YahooFinancials(ticker)
         history = yahoo_financial.get_historical_price_data(
             start_date=self._date_to_str(start_date),
