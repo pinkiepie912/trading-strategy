@@ -49,4 +49,5 @@ class PriceHistory:
 
     def to_df(self) -> pd.DataFrame:
         df = pd.DataFrame(self.prices)
-        return df.set_index("date")
+        df.set_index("date")
+        return df
