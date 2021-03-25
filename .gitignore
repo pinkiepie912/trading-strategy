@@ -140,3 +140,6 @@ cython_debug/
 
 # DB data
 tools/infra/trading-db/data/
+
+# vim
+.vim/
