@@ -5,8 +5,6 @@ from typing import List
 
 import pandas as pd
 
-from .utils import str_to_date
-
 
 class Currency(enum.Enum):
     USD = "USD"
