@@ -19,7 +19,6 @@ pandas = "^1.2.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-yahoofinancials = "^1.6"
 pre-commit = "^2.11.1"
 
 [build-system]
