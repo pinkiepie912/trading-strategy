@@ -28,26 +28,10 @@ class Price:
 
 @dataclass
 class PriceHistory:
-    prices: List[Price]
+    name: str
+    ticker: str
     currency: Currency
-
-    @classmethod
-    def of(cls, prices: List[dict], currency: Currency):
-        return cls(
-            currency=currency,
-            prices=[
-                Price(
-                    adjclose=price["adjclose"],
-                    close=price["close"],
-                    date=str_to_date(price["formatted_date"]),
-                    high=price["high"],
-                    low=price["low"],
-                    open=price["open"],
-                    volume=price["volume"],
-                )
-                for price in prices
-            ],
-        )
+    prices: List[Price]
 
     def to_df(self) -> pd.DataFrame:
         df = pd.DataFrame(self.prices)
