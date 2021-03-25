@@ -15,6 +15,8 @@ class Currency(enum.Enum):
 
 @dataclass
 class Price:
+    ticker: str
+    currency: Currency
     adjclose: float
     close: float
     date: datetime.date
